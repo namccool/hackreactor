@@ -9,32 +9,27 @@
   <body>
 
     <script>
-      /*
-       *  Nice, you found the HTML source code for ChatBuilder! This document kicks everything off when you load it
-       *  in your browser, and is a starting point for the whole app. It's pretty incomplete though--you should
-       *  make your own version of it that works better!
-       *
-       *  You can't edit the code here until it's in a file on your hard drive, so copy this whole page of source
-       *  code and paste it into a plain text editor like Sublime Text 2 (http://www.sublimetext.com/). Save it as
-       *  a `.html` file, and open that file with Google Chrome. You can now edit it however you like, and refresh
-       *  the page to see your modifications take effect on how the application runs.
-       *
-       *  Fair warning: one or more of the steps ahead could require a good amount of research to understand all
-       *  the terms and technologies mentioned. Googling words you haven't heard before is a great idea. Just be
-       *  careful not to spend too long in 'research mode' without making any forward progress on your real goal of
-       *  completing the app!
-       *
-       *  When you've got this code saved as a local file, uncomment the line of JavaScript code below and open
-       *  the new file in Google Chrome. Your next instructions will be waiting for you in the JavaScript console.
-       *  If you already know the Chrome JS development tools pretty well, feel free to skip this opening tutorial
-       *  by calling the `.start()` function on `Chat.guide` instead of `.intro()`
-       *
-       *  NOTE: Please do not publish or share any of the code associated with this challenge. We've worked really
-       *  hard to build this material and publishing solutions diminishes its effectiveness.
-       */
-      // Your JavaScript code will go right here!
-      Chat.guide.intro();
+      Chat.guide.start();
     </script>
+    <h1>Goals of this Projects</h1>
+    <p>Congrats, You have all the tools you need to build your own chat client! Your goal in this project will be to create a chat application by using HTML, CSS, JS, and jQuery, and by making HTTP requests to a server in the background, via JavaScript. (You won't need to edit the server, that part is all handled for you.) You can see a working example version of the chat client at http://chatbuilder.hackreactor.com/chatbuilder.html?example=1.
+
+    <p>We've provided 3 helper functions that can do most of the work for you at first, so you should start by figuring out how those work and building your client on top of them. Next, you'll be asked to delete those helpers and rebuild their functionality. By going in this order, you'll have a strong understanding of the project at a high level before you begin tackling the harder details. If you're new to developing for the web, you may find it useful to refer to the tutorials "Try jQuery" (http://try.jquery.com/) and "Explore and Master Chrome DevTools" (http://discover-devtools.codeschool.com/).
+
+    <p>Ok, get started! You'll need to complete each of the following steps, probably in this order since each one builds on the previous.
+    <ol class="instructions">
+   <li>Experiment with the  Chat.display()  helper</li>
+   <li>Experiment with the  Chat.fetch()  helper</li>
+    <li>Hook the two together</li>
+    <li>Set your app up to refresh the list of messages every 3 seconds.</li>
+    <li>Experiment with the  Chat.send()  helper</li>
+    <li>Allow the user to enter their own chat messages via the input box.</li>
+    <li>Woohoo, you're done with beginner phase--time to delete the helpers!</li>
+    <li>Add  delete Chat.display;  as the first line of your JS.</li>
+    <li>Add  delete Chat.fetch;  as the second line of your JS.</li>
+    <li>Add  delete Chat.send;  as the third line of your JS.</li>
+    </ol>
+    <p>You can access more detailed explanations of each step by passing the step number into  Chat.guide() . When you need help, please reach out to your interviewer rather than a friend--We're happy to help! 
 
     <h2>Borken Chat</h2>
 
