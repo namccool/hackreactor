@@ -7,36 +7,92 @@
     <script src="http://chatbuilder.hackreactor.com/ChatBuilder.js"></script>
   </head>
   <body>
-
-    <script>
-      Chat.guide.start();
-    </script>
     <h1>Goals of this Projects</h1>
     <p>Congrats, You have all the tools you need to build your own chat client! Your goal in this project will be to create a chat application by using HTML, CSS, JS, and jQuery, and by making HTTP requests to a server in the background, via JavaScript. (You won't need to edit the server, that part is all handled for you.) You can see a working example version of the chat client at http://chatbuilder.hackreactor.com/chatbuilder.html?example=1.
 
     <p>We've provided 3 helper functions that can do most of the work for you at first, so you should start by figuring out how those work and building your client on top of them. Next, you'll be asked to delete those helpers and rebuild their functionality. By going in this order, you'll have a strong understanding of the project at a high level before you begin tackling the harder details. If you're new to developing for the web, you may find it useful to refer to the tutorials "Try jQuery" (http://try.jquery.com/) and "Explore and Master Chrome DevTools" (http://discover-devtools.codeschool.com/).
 
     <p>Ok, get started! You'll need to complete each of the following steps, probably in this order since each one builds on the previous.
-    <ol class="instructions">
-   <li>Experiment with the  Chat.display()  helper</li>
-   <li>Experiment with the  Chat.fetch()  helper</li>
-    <li>Hook the two together</li>
-    <li>Set your app up to refresh the list of messages every 3 seconds.</li>
-    <li>Experiment with the  Chat.send()  helper</li>
-    <li>Allow the user to enter their own chat messages via the input box.</li>
-    <li>Woohoo, you're done with beginner phase--time to delete the helpers!</li>
-    <li>Add  delete Chat.display;  as the first line of your JS.</li>
-    <li>Add  delete Chat.fetch;  as the second line of your JS.</li>
-    <li>Add  delete Chat.send;  as the third line of your JS.</li>
-    </ol>
+    <ol>
+      <li>Experiment with the  Chat.display()  helper</li>
+      <li>Experiment with the  Chat.fetch()  helper</li>
+      <li>Hook the two together</li>
+      <li>Set your app up to refresh the list of messages every 3 seconds.</li>
+      <li>Experiment with the  Chat.send()  helper</li>
+      <li>Allow the user to enter their own chat messages via the input box.</li>
+      <li>Woohoo, you're done with beginner phase--time to delete the helpers!</li>
+      <li>Add  delete Chat.display;  as the first line of your JS.</li>
+      <li>Add  delete Chat.fetch;  as the second line of your JS.</li>
+      <li>Add  delete Chat.send;  as the third line of your JS.</li>
+
     <p>You can access more detailed explanations of each step by passing the step number into  Chat.guide() . When you need help, please reach out to your interviewer rather than a friend--We're happy to help! 
 
+    <p><b>1. Experiment with the  Chat.display()  helper</b>
+    <br/>* Play in the developer console until you can get it to show an example message in the user-facing viewport.
+    <br/>*  Chat.display()  takes a string as its only input, and displays that string to the user in a bulleted list.
+    <br/>*  Chat.display()  won't work unless there is a  ul  element visible on the page with the class  messages.
+
+    <p><b>2. Experiment with the  Chat.fetch()  helper</b>
+    <br/>* This function downloads the most recent messages from the server and makes them available to you.
+    <br/>* Note that it is asyncronous in nature, so it doesn't return anything. Instead, it accepts a function as its only argument.  (When a function is passed as an argument, we call it a 'callback'.)
+    <br/>* When  .fetch()  is done fetching messages from the server, it will call your callback function, passing an array of strings as the only argument to the callback. Each string in that array is the text value of one chat message. ChatBuilder.
+
+    <p><b>3. Hook the two together</b>
+    <br/>* Using these two functions, and a bit more code, you can build an app that displays the most recent messages available from the server every time you refresh the page.
+
+    <p><b>4. Set your app up to refresh the list of messages every 3 seconds.</b>
+    <br/>* JavaScript offers several "timer" functions that will help you do this.
+    <br/>* HINT: http://stackoverflow.com/questions/10312963/javascript-settimeout
+
+    <p><b>5. Experiment with the  Chat.send()  helper</b>
+    <br/>* When you pass it a message string, will build a message object out of it and send that object to the server.
+
+    <p><b>6. Allow the user to enter their own chat messages via the input box.</b>
+    <br/>* jQuery is provided for you--you'll need it to wire up the input box and the submit button.
+    <br/>* Part of this will involve calling  jQuery()  to gather elements you want to manipulate from the page.
+    <br/>* You'll want to learn a bit about CSS selectors at this point, since that's the main way to start interacting with your page elements via jQuery.
+    <br/>* Once you have a jQuery array that contains the node(s) you want to operate on, you'll need to use jQuery's event handler registration methods to attach your desired behavior. 
+
+    <p><b>7. Woohoo, you're done with beginner phase--time to delete the helpers!</b>
+    <br/>* In the advanced section, you'll start deleting the helper functions that came for free in ChatReactor.js and writing your own versions.
+    <br/>* You'll start interacting directly with the server, so it'll help you to know more about it.  The server is run by Parse, a flexible system for storing data that offers a structured way to access and update that information over HTTP (aka a REST API).
+    <br/>* You can read more about the details of that system at their API docs (https://www.parse.com/docs/rest), but remember: the less time you spend researching, the more time you'll have left to keep implementing the next step.
+
+    <p><b>8. Add  delete Chat.display;  as the first line of your JS.</b>
+    <br/>* This will erase one of the provided helper functions, forcing you to implement it yourself.
+    <br/>* In your new implementation of the function, you'll transform the message string being passed in into some appropriate HTML.
+    <br/>* You'll need jQuery's help to add the new html you made into the page, as a child of the messages container node. 
+
+    <p><b>9. Add  delete Chat.fetch;  as the second line of your JS.</b>
+    <br/>* Time to learn about AJAX! jQuery can help a lot with that too. In fact, don't use any techniques for communicating with the server other than jQuery's AJAX library, since we've hacked it a little to simplify permissions the issues you'd encounter otherwise.
+    <br/>* HINT: By default, the Parse API doesn't guarantee the order of the results, so you'll want to pass them an 'order' property in the data you're sending along.
+
+    <p><b>10. Add  delete Chat.send;  as the third line of your JS.</b>
+    <br/>* To submit a new chat message, you'll need to send a POST request to a RESTful resource endpoint on the Parse API. The url for that resource is https://api.parse.com/1/classes/chats.
+    <br/>* The endpoint is expecting to get an object from you that contains a property named "text" (and no other properties).
+    <br/>* NOTE: The Parse API expects the message data object you send to be encoded as JSON, so you'll want to stringify it that way before POSTing it.
+
     <h2>Borken Chat</h2>
+    <input class="draft" type="text"/> <button class="send">Send</button>
+    <ul class="messages"> </ul>
 
-    <input class="draft" type="text"/> <button class="send" disabled>Send</button>
+    <script>
+    var body = $("body");
+    var button = $("button");
 
-    <ul class="messages">
-    </ul>
+    function fetch() {
+      Chat.fetch(Chat.display);
+    }
+ 
+   // setInterval(fetch, 3000);
 
+    button.on("click", function() {
+      var input = $("input");
+      console.log(input[0].value);
+      Chat.send(input[0].value);
+      return fetch();
+    })
+
+    </script>
   </body>
 </html>
